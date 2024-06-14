@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/style.css">
+  <script src="assets/data/user.js"></script>
+  <script src="assets/data/posts.js"></script>
+  <script src="script/helper.js"></script>
+  <script src="script/htmlStrings.js"></script>
+  <script src="script/script.js"></script>
+  <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
+  <title>ImageOrbit</title>
+</head>
+
+<body onload="render()">
+  <div id="limiter">
+    <nav>
+      <img src="assets/img/logo.png" class="logo" alt="Logo ImageOrbit">
+      <img src="assets/img/logo_small.png" class="logoSmall" alt="Logo ImageOrbit">
+      <ul>
+        <li onclick="location.href='index.html';">
+          <img src="assets/icons/house-solid-white.svg" class="hoverIcon" alt="House Icon">
+          <img src="assets/icons/house-solid-main.svg" class="navIcon" alt="House Icon">
+          <p>Startseite</p>
+        </li>
+        <li>
+          <img src="assets/icons/magnifying-glass-solid-white.svg" class="hoverIcon" alt="Magnifying Glass Icon">
+          <img src="assets/icons/magnifying-glass-solid-main.svg" class="navIcon" alt="Magnifying Glass Icon">
+          <p>Suche</p>
+        </li>
+        <li>
+          <img src="assets/icons/compass-drafting-solid-white.svg" class="hoverIcon" alt="Compass Icon">
+          <img src="assets/icons/compass-drafting-solid-main.svg" class="navIcon" alt="Compass Icon">
+          <p>Entdecken</p>
+        </li>
+        <li>
+          <img src="assets/icons/film-solid-white.svg" class="hoverIcon" alt="Movie Icon">
+          <img src="assets/icons/film-solid-main.svg" class="navIcon" alt="Movie Icon">
+          <p>Clips</p>
+        </li>
+        <li>
+          <img src="assets/icons/envelope-solid-white.svg" class="hoverIcon" alt="Envelope Icon">
+          <img src="assets/icons/envelope-solid-main.svg" class="navIcon" alt="Envelope Icon">
+          <p>Nachrichten</p>
+        </li>
+        <li>
+          <img src="assets/icons/bullhorn-solid-white.svg" class="hoverIcon" alt="Bullhorn Icon">
+          <img src="assets/icons/bullhorn-solid-main.svg" class="navIcon" alt="Bullhorn Icon">
+          <p>Benachrichtigungen</p>
+        </li>
+        <li onclick="createPost()">
+          <img src="assets/icons/circle-plus-solid-white.svg" class="hoverIcon" alt="Plus Icon">
+          <img src="assets/icons/circle-plus-solid-main.svg" class="navIcon" alt="Plus Icon">
+          <p>Erstellen</p>
+        </li>
+        <li style="padding: 0 8px;gap: 16px;">
+          <img src="assets/img/developer_academy.jpg" class="profilePic" alt="userPic">
+          <p>Profil</p>
+        </li>
+      </ul>
+      <p class="copyright">©Jan Holtschke</p>
+    </nav>
+    <div class="rightContainer customScroll">
+      <section class="main">
+        <div class="content">
+          <div id="stories">
+            <h2>Stories deiner Freunde</h2>
+            <div id="storiesSuggest" class="storiesProfilePic"></div>
+          </div>
+          <div id="postings"></div>
+        </div>
+      </section>
+      <section id="followSuggest" class="follow"></section>
+    </div>
+    <div id="createPost" class="d-none">
+      <h2>Teile mit der Welt</h2>
+      <P>Was möchtest du mit der Welt teilen?</P>
+      <input type="url" id="newImg" placeholder="Trage eine URL zu einem Bild ein"></input>
+      <P>Wo bist du gerade?</P>
+      <input type="text" id="newLoc" placeholder="Dein Ort">
+      <p>Teile deine Gedanken zu deinem Bild</p>
+      <input type="text" id="newDes" placeholder="Dein Kommentar zum Bild">
+      <button onclick="addPost()">Teilen</button>
+      <button onclick="closePost()">Abbrechen</button>
+    </div>
+  </div>
+</body>
+
+</html>

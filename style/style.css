@@ -1,0 +1,558 @@
+:root {
+  --mainColor: #34495e;
+  --acentColor: #f1c40f;
+  --bgColor: #ffffff;
+  --textColor: #2c3e50;
+  --secColor: #1abc9c;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.customScroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.customScroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.customScroll::-webkit-scrollbar-thumb {
+  background: radial-gradient(var(--acentColor), var(--secColor), var(--mainColor));
+  border-radius: 4px;
+}
+
+.customScroll::-webkit-scrollbar-thumb:hover {
+  background-color: var(--mainColor);
+}
+
+.customScroll::-webkit-scrollbar-button {
+  display: none;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .customScroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--mainColor) transparent;
+  }
+}
+
+.customScroll::-ms-scrollbar {
+  width: 8px;
+}
+
+.customScroll::-ms-scrollbar-thumb {
+  background-color: var(--mainColor);
+  border-radius: 4px;
+}
+
+.customScroll::-ms-scrollbar-track {
+  background: transparent;
+}
+
+body {
+  background-color: var(--bgColor);
+  color: var(--textColor);
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background-color: var(--mainColor);
+}
+
+#limiter {
+  max-width: 1920px;
+  background-color: var(--bgColor);
+  display: flex;
+  width: 99.8%;
+  height: 99.8%;
+}
+
+nav {
+  position: relative;
+  color: var(--mainColor);
+  font-weight: 600;
+  width: 256px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0 0 24px;
+  box-shadow: 0 0 5px 2px var(--mainColor);
+}
+
+.logo {
+  height: 120px;
+  width: 160px;
+  object-fit: contain;
+  padding-left: 40px;
+}
+
+.logoSmall {
+  height: 48px;
+  width: 48px;
+  display: none;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 40px;
+}
+
+nav ul li {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 40px;
+  padding: 0 16px;
+  width: 96%;
+  cursor: pointer;
+}
+
+nav ul li:hover {
+  color: var(--bgColor);
+  background-color: var(--mainColor);
+  border-radius: 8px;
+}
+
+nav ul li:hover .hoverIcon,
+button:hover .hoverIcon {
+  display: block;
+}
+
+nav ul li:hover .navIcon,
+button:hover .navIcon {
+  display: none;
+}
+
+.navIcon {
+  height: 24px;
+}
+
+.profilePic {
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--mainColor);
+}
+
+.hoverIcon {
+  height: 24px;
+  display: none;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 40px 40px 0 10%;
+  min-width: 50%;
+}
+
+.stories {
+  display: flex;
+  height: 256px;
+}
+
+.storiesProfilePic {
+  display: flex;
+  border-top: var(--secColor);
+  padding-top: 16px;
+  gap: 16px;
+}
+
+.storiesProfilePic .profilePic {
+  height: 64px;
+}
+
+.storiesProfilePic .profilePic:hover,
+.postIcon:hover,
+.comments:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.gradientBorder {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(45deg, var(--secColor), var(--acentColor));
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#postings {
+  display: flex;
+  flex-direction: column-reverse;
+  padding-top: 24px;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  border: 4px solid var(--mainColor);
+  border-radius: 24px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.topPost {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 72px;
+  font-size: 24px;
+  border-bottom: 2px solid var(--secColor);
+  border-radius: 16px 16px 0 0;
+}
+
+.topPostRight {
+  display: flex;
+  flex: 1;
+}
+
+.topPostInfo {
+  flex: 2.5;
+}
+
+.topLine,
+.description,
+.comments,
+.commentsName {
+  font-weight: 600;
+}
+
+.bottomLine {
+  font-size: 16px;
+}
+
+.topPost .profilePic {
+  height: 64px;
+  margin: 8px;
+}
+
+.timePost,
+.likes,
+a {
+  align-self: flex-end;
+  text-align: right;
+  padding-right: 4px;
+  flex: 1;
+}
+
+.imagePost {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secColor);
+}
+
+.imgPost {
+  max-width: 100%;
+  max-height: 64vh;
+  object-fit: contain;
+}
+
+.bottomPost {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  border-top: 2px solid var(--secColor);
+  border-radius: 0 0 16px 16px;
+}
+
+.bottomPostText {
+  padding-left: 8px;
+}
+
+.iconsPost {
+  display: flex;
+  padding: 8px;
+  gap: 24px;
+}
+
+.postIcon {
+  height: 32px;
+}
+
+.commentsSeen {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 8px;
+  max-height: 160px;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.commentsName {
+  border-top: 1px solid var(--secColor);
+}
+
+.commentsText {
+  padding: 4px 8px 4px 4px;
+  word-break: break-all;
+}
+
+.inputField {
+  display: flex;
+  width: 100%;
+  border-top: 4px solid var(--acentColor);
+}
+
+input {
+  width: 84%;
+  height: 32px;
+  outline: unset;
+  border: none;
+  padding: 0;
+  border-radius: 0 0 0 16px;
+  padding-left: 32px;
+}
+
+button {
+  width: 16%;
+  height: 32px;
+  border: none;
+  border-radius: 0 0 16px 0;
+  background-color: var(--bgColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid var(--acentColor);
+  cursor: pointer;
+}
+
+.follow {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 64px 64px 0 0;
+  gap: 16px;
+  position: relative;
+}
+
+.profile {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+}
+
+.gap {
+  padding-top: 16px;
+  padding-bottom: 8px;
+}
+
+.followSuggest {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--secColor);
+}
+
+a:hover {
+  color: var(--acentColor);
+}
+
+.copyright {
+  font-size: 16px;
+  color: var(--secColor);
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.rightContainer {
+  flex: 1;
+  display: flex;
+  overflow-y: scroll;
+}
+
+#createPost {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  width: 75%;
+  height: 75%;
+  z-index: 2;
+  background-color: var(--secColor);
+  border: 2px solid var(--mainColor);
+  border-radius: 16px;
+  padding: 4%;
+}
+
+#createPost p {
+  font-size: 24px;
+}
+
+#createPost textarea {
+  height: 50%;
+  width: 100%;
+  resize: none;
+  border-radius: 8px;
+  outline: unset;
+  border: none;
+  padding: 8px;
+}
+
+#createPost input {
+  width: 100%;
+  border-radius: 8px;
+  height: 40px;
+  padding: 4px 8px;
+}
+
+#createPost button {
+  width: 100%;
+  border-radius: 8px;
+  height: 40px;
+  padding: 4px;
+  background-color: var(--mainColor);
+  color: var(--bgColor);
+  font-size: 24px;
+}
+
+#createPost button:hover {
+  opacity: 0.7;
+}
+
+.behind {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  height: 16px;
+  background-color: var(--bgColor);
+  border-radius: 50%;
+  z-index: -1;
+  cursor: pointer;
+}
+
+.gradientBorder:hover .behind {
+  z-index: 3;
+}
+
+@media (max-width: 1399.98px) {
+  .follow {
+    width: 320px;
+    padding-right: 40px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .follow .followTag {
+    display: none;
+  }
+
+  .gap {
+    display: none;
+  }
+
+  .follow {
+    width: 160px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  nav {
+    width: 72px;
+    align-items: center;
+    padding: 40px 8px;
+  }
+
+  nav ul {
+    align-items: center;
+  }
+
+  nav p,
+  .logo {
+    display: none;
+  }
+
+  nav li {
+    width: auto;
+    justify-content: center;
+  }
+
+  .logoSmall {
+    display: block;
+  }
+
+  .copyright {
+    transform: rotate(270deg);
+    width: max-content;
+    padding-top: 0;
+    left: -40px;
+    bottom: 50px;
+  }
+
+  .content {
+    padding: 40px 24px 0 24px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .follow {
+    display: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  nav {
+    display: none;
+  }
+
+  #stories {
+    display: none;
+  }
+
+  .postIcon {
+    height: 24px;
+  }
+
+  .topPostRight {
+    flex-direction: column;
+  }
+
+  .topPost {
+    font-size: 16px;
+  }
+
+  .topPost .profilePic {
+    height: 48px;
+  }
+
+  .content {
+    padding: 24px 24px 0 24px;
+  }
+}
